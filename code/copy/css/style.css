@@ -1,0 +1,263 @@
+@charset "UTF-8";
+
+html {
+    font-family: "Arial", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 100%;
+    color: #2a2a2a;
+}
+body {
+    font-family: "Arial", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 0.875rem;
+    color: #2a2a2a;
+  }
+a {
+    text-decoration: none;
+}
+a:hover {
+    opacity: 0.7;
+}
+img {
+    max-width: 100%;
+}
+li {
+    list-style: none;
+}
+.wrapper {
+    max-width: 1200px;
+    /* max-widthを指定する事でMagazineの画像サイズが縮小された */
+    margin: 0 auto;
+    padding: 0 5%;
+}
+.btn {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    /* aタグを通常の色にしたいができない。色を指定すれば解決。text-decoration: none; */
+    color: #2a2a2a;
+}
+.sec-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+/* 
+header
+================================--*/
+header {
+    background-image: url(../../../image/mainvisual.jpg);
+    background-position: center top;
+    height: 100vh;
+    margin-bottom: 80px;
+    position: relative;
+}
+header .site-title {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+/* 
+magazine-
+================================--*/
+#magazine {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#magazine .flex-item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+#magazine .flex-item .item{
+    width: 49%;
+    position: relative;
+}
+#magazine .flex-item .item .text{
+    max-width: 290px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    position: absolute;
+    margin: 0 auto;
+    /* =====================================-
+        画像内の中央に配置する設定
+        ・top40%で親のオブジェクトの左上を0とした時の高さ(デフォルトは100%)
+        ・left, rightで0を指定すると両端からの同じ距離に配置
+    =====================================- */
+    top: 40%;
+    left: 0;
+    right: 0;
+}
+#magazine .flex-item .item .title {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+}
+
+/* 
+fashion-
+================================--*/
+#fashion {
+    background-image: url(../../../image/fashion.jpg);
+    background-position: center top;
+    height: 50vh;
+    margin-bottom: 8rem;
+    text-align: center;
+    padding-top: 60px;
+}
+/* 
+Catalog-Antique
+====================================*/
+.catalog-antique {
+    background-color: #f5f5f5;
+    padding-bottom: 4rem;
+}
+.catalog-antique .flex-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.catalog-antique .item {
+     /*==============================-
+     aタグのtext-alignプロパティは変換できない : 
+     text-alignはブロック内部のインライン要素の並びを指定するもの
+     aタグはインライン要素に当たるので、ブロックを指定しないと中央にできない。
+     (pタグはブロック要素になるので指定できる)
+     ==================================  */
+    text-align: center;
+    width: 48%;
+}
+.catalog-antique .sec-title {
+    padding-bottom: 2rem;
+}
+.catalog-antique img {
+    width:  100%;
+    object-fit: cover;
+}
+.catalog-antique p {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.catalog-antique .flex-item:first-child{
+    margin-bottom: 0;
+}
+
+/* 
+footter
+=========================================== */
+#footer {
+    background-color: rgb(90, 85, 85);
+    align-items: center;
+}
+#footer .flex-item{
+    display: flex;
+    background-color: rgb(90, 85, 85);
+    color: #f5f5f5;
+    font-size: 0.8rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    justify-content: space-between;
+}
+#footer .item {
+    width: 33%;
+    line-height: 2rem;
+}
+#footer .item:first-child {
+
+    padding: 60px 0;
+    /* ======================================================= 
+    divタグに含まれるa<a>><img></img></a>の区分を中央の高さに揃えたい
+    align-items: center; は反映されなかった
+    align-itemsはそもそもflex, gridコンテナの親要素(今回でいえばflex-item)で適用するもの
+    中央揃えにしたい要素を指定しても反映されない
+    =========================================================*/
+}
+#footer .item h2{
+    padding-bottom: 1rem;
+}
+
+#footer .item li::before{
+    content: "-";
+    padding-right: 5px;
+}
+#footer .copyright {
+    background-color: white;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+@media screen and (max-width:896px){
+    #magazine {
+        width: 100%;
+    }
+    #magazine .flex-item{
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+
+    /* ======================================================= 
+        flexコンテナの中の画像要素を中央に配置したい
+        ・width 100%にすれば自動的に中央配置
+        ・画像を小さくしたい時 widthを75%(or親のpaddingを大きくする)にすると左寄せになってしまう。
+        ・justify-content:centerが効かない
+        ・理由はまだ不明
+    =========================================================*/
+    }
+    #magazine .flex-item .item {
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    /* Category-Antique
+    =========================================================*/
+    .catalog-antique .flex-item{
+        flex-direction: column;
+    }
+    .catalog-antique .flex-item .item {
+        width: 100%;
+    }
+    .catalog-antique .flex-item .item:first-child {
+        margin-bottom:2rem ;
+    }
+    /* #footer .flex-item {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin-left:0 ;
+        margin-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 1rem;
+    }
+    #footer .flex-item .wrapper {
+        padding: 0;
+    }
+    #footer .flex-item .item {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    #footer .flex-item .item:first-child {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    #footer .flex-item .item h2,p,li{
+        text-align: left;
+    } */
+    #footer .flex-item {
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+      #footer .item {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      #footer .item:first-child {
+        text-align: center;
+        padding: 0;
+      }
+
+}

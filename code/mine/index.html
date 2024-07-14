@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore Menu</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <!-- 
+        metaタグ : name=descriptionを追加する(SEO)
+     -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 
+        ===================================
+        body構成は header > main > footerの3構成を中心に。
+        ・SEOの意味合い : クロールが構造を読みやすくする
+        ・開発の円滑化 : 他の開発者の可読性を高めてあげる
+        ===================================
+     -->
+
+    <div id="main-image">
+        <img src="../../image/logo.svg" alt="Logo" id="main-logo">
+    </div>
+    
+    <!-- 
+        ===================================
+        h1タグをヘッダー。mainタグ内はh2タグで指定する
+        ・h1タグを乱用しすぎると大見出しが多くなりSEO観点で読まれづらくなる
+        ===================================
+     -->
+    <!--
+        magazine section :  
+        ===================================
+        ・一番外側を全てmainで囲う
+        ・pタグは行ごとに分けなくても良い
+        ・画像とテキストの組み合わせのオブジェクトはflex-itemの扱いにする
+        ・ホバーすると2つの画像がそれぞれ白くなる様になっている => aタグで文章と画像を囲って実現。(opacityを利用)
+        ・セクション全体の横幅を調整 => wrapperクラスを使い実現。他セクションのflex-itemでも同じクラスを用いている
+        ・表題とテキスト文の部分は dlではなく、titleクラスのtitleに、通常のpタグ
+        ===================================
+     -->
+    <section id="mainText">
+        <div class="description">
+            <h1>A special, long article in a newspaper or magazine</h1>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+        </div>
+        <div id="mainTextImage">
+            <div class="textOnImage">
+                <img src="../../image/magazine-archive.jpg" alt="archive">
+                <dl>
+                    <dt>New</dt>
+                    <dd>テキストテキストテキストテキスト</dd>
+                    <dd>テキストテキストテキスト</dd>
+                </dl>
+            </div>
+            <div class="textOnImage">
+              
+                <img src="../../image/magazine-new.jpg" alt="magazine">
+                <dl>
+                    <dt>New</dt>
+                    <dd>テキストテキストテキストテキスト</dd>
+                    <dd>テキストテキストテキスト</dd>
+                </dl>
+            </div>
+        </div>
+    </section>
+    <!-- 
+        ===================================
+        ・全体幅の画像はbackground-imageの方で扱う => 扱いやすいから?
+        ・
+        ===================================
+     -->
+    <div id="FashionStyle">
+            <dl>
+                <dt>Fashion & Style</dt>
+                <dd>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</dd>
+                <dd>テキストテキストテキストテキストテキストテキストテキストテキスト</dd>
+            </dl>
+            <a class="readmore_btn" href="#">Read more</a>
+    </div>
+    <!-- 
+        ===================================
+        ・CatalogとAntiqueは同じクラスで扱う
+        ・構造はsection > flex-item > itemの構成
+        ・Catalogのitemの構成は次の2box : 画像 と テキスト
+        ・Antiqueのitemの構成は次の2box : 画像 と テキスト+Read moreボタン
+        ・テキストは改行(空白行)があるとpタグを分けている
+        ===================================
+     -->
+    <section id="Catalog" class="gray-color">
+        <img src="../../image/catalog.jpg" alt="catalog">
+        <div>
+            <h1>Catalog</h1>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p></p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p></p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+        </div>
+    </section>
+
+    <section id="Antique" class="gray-color">
+        <img src="../../image/antique.jpg" alt="antique">
+        <div>
+            <h1>Antique</h1>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p></p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p></p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <div id="readmore_btn_2">Read more</div>
+        </div>
+    </section>
+    <!-- 
+        ===================================
+        ・footerの構造は画像 > テキストリスト > テキストの3部
+        ・ &copy; で Cマーク
+        ===================================
+     -->
+    <footer>
+        <div id="footer-menu">
+            <img src="../../image/logo.svg" alt="Logo">
+            <!-- <div class="footer-menu-list"> -->
+                <div id="footer-menu01">
+                    <h2>タイトル</h2>
+                    <ul>
+                        <li>テキストテキストテキスト</li>
+                        <li>テキストテキストテキスト</li>
+                        <li>テキストテキストテキスト</li>
+                        <li>テキストテキストテキスト</li>
+                        <li>テキストテキストテキスト</li>
+                    </ul>
+                </div>
+                <div id="footer-menu02">
+                    <h2>タイトルタイトルタイトル</h2>
+                    <p>テキストテキストテキストテキストテキストテキストテキスト</p>
+                    <p>テキストテキストテキストテキストテキストテキストテキスト</p>
+                    <p>テキストテキストテキストテキストテキストテキストテキスト</p>
+                    <p>テキストテキストテキストテキストテキストテキスト</p>
+                </div>
+            </div>
+        <!-- </div> -->
+        <div id="footer-logo">
+            <p>&copy;Mag86</p>
+        </div>
+    </footer>
+
+</body>
+</html>

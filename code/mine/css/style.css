@@ -1,0 +1,242 @@
+@charset "utf-8";
+:root {
+    --bg-color-gray : lightgray
+}
+
+
+/* COMMON
+=============================== */
+
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: 'Arial','Hiragino','SansHiragino Kaku Gothic ProN','Meiryo','sans-serif';
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    /* Point : 画像によってサイズが異なるので100%を越えさせない、均一の幅にする */
+    max-width: 100%;
+    object-fit: cover;
+    width: 100vw;
+    height: auto;
+  }
+
+#mainText,
+#FashionStyle,
+#Catalog {
+    max-width: 1200px;
+    padding: 0 5%;
+}
+
+.description {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.description h1{
+    margin-bottom: 1rem;
+}
+
+.readmore_btn {
+    text-decoration: none;
+    color: black;
+    border: 1px solid #000;
+    padding: 0.5rem;
+}
+
+.textOnImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.textOnImage dl {
+    text-align: center;
+    color: white;
+    background-color: lightgray;
+    opacity: 0.7;
+    width: 50%;
+    height: auto;
+    position: absolute;
+}
+.textOnImage dt {
+    font-weight: bold;
+}
+
+.textOnImage_noborder {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.textOnImage_noborder dl,a{
+    position: absolute;
+    translate: 0 -8rem;
+    margin-bottom: 2rem;
+}
+.textOnImage_noborder dt {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.readmore_btn {
+    /* 
+    ボタンの配置には必ずposition属性が付与される、inheritにしたら中心に寄せられるもののテキストとのmarginを開けることができない */
+    border: 1px solid #000;
+    padding: 1rem;
+    margin-top: 10rem;
+    margin-left: -3.5rem;
+}
+
+.gray-color {
+    background-color: var(--bg-color-gray);
+}
+
+/* MainVisual
+=============================== */
+
+
+#main-image {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../../image/mainvisual.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: 80px;
+    position: relative;
+}
+#main-logo {
+    position: absolute;
+    /* 右上に固定 */
+    right: 0;
+    top: 0;
+    transform: translate(-2rem,1rem);
+    /* サイズの調整 */
+    width: 20vw;
+    height: auto;
+}
+
+/* MainText
+================================== */
+
+#mainText {
+    padding: 0 8rem 0 8rem;
+    margin-bottom: 6rem;
+}
+#mainTextImage {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1vw;
+    margin-bottom: 2rem;
+}
+
+
+
+/* FashionStyle
+画像の横幅を画面いっぱいに広げたいが、常に横に空白ができる。これはmargin,paddingの類では無い空白
+dtなどの文字列を編集ができない、(太字にしたいができない)
+==================================== */
+#FashionStyle {
+    width: 100%;
+    height: 50vh;
+    background-image: url(../../../image/fashion.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: 80px;
+    position: relative;
+    text-align: center;
+}
+#FasionStyle dt {
+    font-weight: bold;
+}
+
+/* Catalog 
+==================================== */
+#Catalog {
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    padding: 0;
+    max-width: 100%;
+    padding-bottom: 2rem;
+}
+
+#Catalog img {
+    width: 50%;
+}
+#Catalog div{
+    text-align: center;
+    margin-left: 2rem;
+    width: 50%;
+}
+
+/* Antique
+Readボタンが中心によらない
+==================================== */
+#Antique {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 50vh;
+    max-width: 100%;
+    margin-bottom: 10rem;
+}
+#Antique img {
+    width: 50%;
+}
+#Antique div{
+    width: 50%;
+    text-align:center;
+    align-items: center;
+    margin-right: 2rem;
+}
+#readmore_btn_2 {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 1rem;
+    max-width: 25%;
+    width: auto;
+    transform: translate(15rem);
+
+}
+
+
+/* Footer
+画像を小さくする方法
+==================================== */
+#footer-menu {
+    background-color:#555;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    align-items: center;
+    color: #fff;
+}
+#footer-menu img{
+    flex: 0.5;
+    width: 5vw;
+    height: auto;
+    margin: 10%;
+}
+/* #footer-menu-list {
+    flexの子供はflexにできない? 横向きに設定したいのだが
+    display: flex;
+    flex-direction: row;
+} */
+
+#footer-menu01 {
+    margin-right: 10rem;
+}
+
+#footer-logo {
+    text-align: center;
+}
